@@ -6,6 +6,31 @@
 
 An application of the PCA method on the weekly household expenditures dataset
 
+## Project Setup
+The cookiecutter for data sciene template was configured to work with the cmd tool `make`:
+
+#### Linux (Ubuntu)
+```bash
+sudo apt update
+sudo apt install make
+```
+
+#### Windows (cmd)
+You can download the executable setup for `make` from this [link](https://gnuwin32.sourceforge.net/packages/make.htm)
+
+#### Dependency management
+The project uses anaconda3, so you are required to install either the full version or `miniconda3` from the official website.
+
+## Quick Start
+After having the necessary tools installed, run these commands in sequence:
+
+```sh
+make create_environment
+make data
+```
+You can then access one of the notebooks to test your installation.
+
+
 ## Project Organization
 
 ```
