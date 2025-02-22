@@ -2,7 +2,7 @@ from pathlib import Path
 import typer
 from loguru import logger
 import pandas as pd
-from household_expenditure_pca.config import PROCESSED_DATA_DIR, RAW_DATA_DIR
+from config import PROCESSED_DATA_DIR, RAW_DATA_DIR
 
 app = typer.Typer()
 
