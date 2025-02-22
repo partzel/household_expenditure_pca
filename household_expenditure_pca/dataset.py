@@ -6,6 +6,14 @@ from config import PROCESSED_DATA_DIR, RAW_DATA_DIR
 
 app = typer.Typer()
 
+def fill_na_values(df):
+    num_cols=df.select_dtypes(include="float64").columns
+    cat_cols=df.select_dtypes(include="object").columns
+    for col in num_cols:
+        df.loc[:,col] = df.loc[:,col].fillna(df[col].mean())
+    for col in cat_cols:
+        mode_value = df[col].mode()[0]
+        df.loc[:,col] = df.loc[:,col].fillna(mode_value)
 
 @app.command()
 def main(
@@ -23,6 +31,10 @@ def main(
     logger.info(f"You can find the data set in {input_path}")
     # -----------------------------------------
 
+    logger.info(f"Applying eda ...")
+    fill_na_values(df)
+    df.to_csv(f"{output_path}")
+    logger.info(f"You can find the processed data set in {output_path}")
 
 if __name__ == "__main__":
     app()
