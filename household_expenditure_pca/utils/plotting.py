@@ -3,7 +3,7 @@ import seaborn as sns
 
 def distribution_plot(df,column):
     plt.figure()
-    sns.histplot(df[column], kde=True)
+    plot=sns.histplot(df[column], kde=True)
     plt.title(f'Boxplot of {column}')
     return plot
 def outlier_check(df,column):
